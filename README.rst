@@ -9,8 +9,8 @@ Links to the main data science cookiecutter:
 - `Project Homepage <https://drivendata.github.io/cookiecutter-data-science/>`_
 - `Github <https://github.com/drivendata/cookiecutter-data-science>`_
 
-Requirements for the Cookiecutter
----------------------------------
+Requirements for the Template
+-----------------------------
 - Python >= 3.5
 - `Cookiecutter Python package <http://cookiecutter.readthedocs.org/en/latest/installation.html>`_ >= 1.4.0: This can be installed with pip by or conda depending on how you manage your Python packages: ::
 
