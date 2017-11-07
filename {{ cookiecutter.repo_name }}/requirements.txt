@@ -1,0 +1,5 @@
+click
+Sphinx
+coverage
+awscli
+flake8
