@@ -1,2 +1,2 @@
 include versioneer.py
-include {{ cookiecutter.import_dir }}/_version.py
+include {{ cookiecutter.import_name }}/_version.py

@@ -26,6 +26,6 @@ Directory Structure
 
 This repo is based on two cookiecutter templates. See the following github pages for more info:
 
-- `apra-data-science <https://github.com/apra93/apra-data-science>`_
+- `cookiecutter-data-science-apra <https://github.com/apra93/cookiecutter-data-science-apra>`_
 - `cookiecutter-data-science <https://github.com/drivendata/cookiecutter-data-science>`_
  

@@ -27,11 +27,11 @@ Starting a New Project
 
 If using for the first time: ::
 
-  $ cookiecutter https://github.com/apra-data-science
+  $ cookiecutter https://github.com/apra93/cookiecutter-data-science-apra
 
 Otherwise: ::
 
-  $ cookiecutter apra-data-science
+  $ cookiecutter cookiecutter-data-science-apra
 
 
 Resulting Directory Structure

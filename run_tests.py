@@ -20,7 +20,7 @@ if __name__ == '__main__':
     # Setup logger and log everything to a file
     root_logger = logging.getLogger()
     root_logger.setLevel(logging.DEBUG)
-    log_filename = os.path.join(os.path.dirname(__file__), 'tests.log')
+    log_filename = os.path.join(os.path.dirname(__file__), 'logs/tests.log')
     if os.path.isfile(log_filename):
         do_rollover = True
     else:

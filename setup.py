@@ -1,7 +1,7 @@
 import versioneer
 from setuptools import setup, find_packages
 
-setup(name='apra-data-science',
+setup(name='cookiecutter-data-science-apra',
       version=versioneer.get_version(),
       cmdclass=versioneer.get_cmdclass(),
       license='MIT',
