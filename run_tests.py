@@ -5,6 +5,7 @@
 import os
 import sys
 import pytest
+from pathlib import Path
 import logging
 from logging.handlers import RotatingFileHandler
 
@@ -20,14 +21,18 @@ if __name__ == '__main__':
     # Setup logger and log everything to a file
     root_logger = logging.getLogger()
     root_logger.setLevel(logging.DEBUG)
-    log_filename = os.path.join(os.path.dirname(__file__), 'logs/tests.log')
-    if os.path.isfile(log_filename):
-        do_rollover = True
-    else:
-        do_rollover = False
-    handler = RotatingFileHandler(log_filename, backupCount=9)
-    if do_rollover:
-        handler.doRollover()
+
+    log_dir = Path(os.path.dirname(__file__)) / 'logs'
+    log_file = log_dir / 'run_tests.log'
+
+    if not log_dir.exists():
+        log_dir.mkdir(parents=True)
+        # Create the file if it doesnt already exist
+    if not log_file.exists():
+        log_file.touch()
+        
+    handler = RotatingFileHandler(str(log_file), backupCount=5,
+                                  maxBytes=1024*1024*10, encoding=None, delay=0)
     formatter = logging.Formatter(fmt=('%(asctime)s.%(msecs)03d '
                                        '%(module)-10s '
                                        '%(levelname)-8s '
