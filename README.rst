@@ -9,18 +9,20 @@ An extension of the standard data science cookiecutter template that adds script
 
 Links to the main data science cookiecutter:
 
-- `Project Homepage <https://drivendata.github.io/cookiecutter-data-science/>`_
-- `Github <https://github.com/drivendata/cookiecutter-data-science>`_
+- Project Homepage: https://drivendata.github.io/cookiecutter-data-science/ 
+- Github: https://github.com/drivendata/cookiecutter-data-science/
 
 Requirements for the Template
 -----------------------------
 - Python >= 3.5
-- `Cookiecutter Python package <http://cookiecutter.readthedocs.org/en/latest/installation.html>`_ >= 1.4.0: This can be installed with pip by or conda depending on how you manage your Python packages: ::
+- `Cookiecutter Python package <http://cookiecutter.readthedocs.org/en/latest/installation.html>`_ >= 1.4.0: This can be installed with pip by or conda depending on how you manage your Python packages: 
+
+::
 
   $ pip install cookiecutter
 
 
-  or ::
+or ::
 
   $ conda install cookiecutter -c conda-forge
 
@@ -28,7 +30,7 @@ Requirements for the Template
 Starting a New Project
 ----------------------
 
-If using for the first time: ::
+If using for the first time or in need of a new clone: ::
 
   $ cookiecutter https://github.com/apra93/cookiecutter-data-science-apra
 
