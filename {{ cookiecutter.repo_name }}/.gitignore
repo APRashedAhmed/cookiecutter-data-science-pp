@@ -104,10 +104,10 @@ ENV/
 *.swp
 
 # None of the logs 
-logs/
+/logs/*
 
 # None of the data
-data/
+/data/*
 
 # None of the unsorted figures
 figures/unsorted/
