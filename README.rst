@@ -2,6 +2,9 @@
 Apra Data Science Cookiecutter
 ==============================
 
+.. image:: https://travis-ci.org/apra93/cookiecutter-data-science-apra.svg?branch=master
+    :target: https://travis-ci.org/apra93/cookiecutter-data-science-apra
+
 An extension of the standard data science cookiecutter template that adds scripts that I've found to be useful for data-oriented projects. 
 
 Links to the main data science cookiecutter:
