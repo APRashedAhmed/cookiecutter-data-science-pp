@@ -3,6 +3,7 @@
 ############
 import os
 import shutil
+from pathlib import Path
 
 ###############
 # Third Party #
@@ -36,38 +37,30 @@ def default_baked_project(tmpdir):
     shutil.rmtree(out_dir)
 
 # Test the folders were created properly
-    
-def test_folders(default_baked_project):
-    expected_dirs = [
-        'data',
-        os.path.join('data', 'external'),
-        os.path.join('data', 'interim'),
-        os.path.join('data', 'processed'),
-        os.path.join('data', 'raw'),
-        'docs',
-        os.path.join('figures', 'finalized'),
-        os.path.join('figures', 'unsorted'),
-        'logs',
-        'models',
-        'notebooks',
-        'references',
-        'src',
-        os.path.join('src', 'data'),
-        os.path.join('src', 'features'),
-        os.path.join('src', 'models'),
-        os.path.join('src', 'visualization')
-    ]
+expected_folders = [
+    'data',
+    os.path.join('data', 'external'),
+    os.path.join('data', 'interim'),
+    os.path.join('data', 'processed'),
+    os.path.join('data', 'raw'),
+    'docs',
+    os.path.join('figures', 'finalized'),
+    os.path.join('figures', 'unsorted'),
+    'logs',
+    'models',
+    'notebooks',
+    'references',
+    'src',
+    os.path.join('src', 'data'),
+    os.path.join('src', 'features'),
+    os.path.join('src', 'models'),
+    os.path.join('src', 'visualization')
+]
 
-    ignored_dirs = [
-        default_baked_project
-        ]
-
-    abs_expected_dirs = [os.path.join(default_baked_project, d) for
-                            d in expected_dirs]
-
-    abs_dirs, _, _ = list(zip(*os.walk(default_baked_project)))
-
-    assert len(set(abs_expected_dirs + ignored_dirs) - set(abs_dirs)) == 0
+@pytest.mark.parametrize("expected_folder", expected_folders)
+def test_folder(default_baked_project, expected_folder):
+    path_expected_folder = Path(default_baked_project) / expected_folder
+    assert path_expected_folder.exists()
 
 def no_curlies(filepath):
     """
@@ -117,8 +110,8 @@ expected_files = [
 
 @pytest.mark.parametrize("expected_file", expected_files)
 def test_file(default_baked_project, expected_file):
-    path_expected_file = os.path.join(default_baked_project, expected_file)
-    assert os.path.exists(path_expected_file)
-    assert no_curlies(path_expected_file)
+    path_expected_file = Path(default_baked_project) / expected_file
+    assert path_expected_file.exists()    
+    assert no_curlies(str(path_expected_file))
 
 
