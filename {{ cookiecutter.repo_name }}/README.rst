@@ -1,8 +1,8 @@
-=============================
-{{cookiecutter.project_name}}
-==============================
+===============================
+{{ cookiecutter.project_name }}
+===============================
 
-{{cookiecutter.description}}
+{{ cookiecutter.description }}
 
 
 Requirements
@@ -28,3 +28,4 @@ This repo is based on two cookiecutter templates. See the following github pages
 
 - `apra-data-science <https://github.com/apra93/apra-data-science>`_
 - `cookiecutter-data-science <https://github.com/drivendata/cookiecutter-data-science>`_
+ 
