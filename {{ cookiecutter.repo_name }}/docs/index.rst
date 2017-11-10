@@ -20,11 +20,11 @@ Contents:
    :maxdepth: 2
    :caption: Main Script
 
-   utils
    data
    features
    models
    visualization
+   utils
 	     
 
 Indices and tables
