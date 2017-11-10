@@ -10,11 +10,22 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
+   :caption: Getting Started
 
    getting-started
    commands
 
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Main Script
+
+   utils
+   data
+   features
+   models
+   visualization
+	     
 
 Indices and tables
 ==================
