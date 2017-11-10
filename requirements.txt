@@ -1,2 +1,4 @@
 cookiecutter
 pytest
+sphinx
+sphinx-rtd-theme
