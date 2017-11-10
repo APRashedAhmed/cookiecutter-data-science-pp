@@ -82,8 +82,7 @@ expected_files = [
     os.path.join('docs', 'models.rst'),
     os.path.join('docs', 'visualization.rst'),
     os.path.join('docs', 'utils.rst'),
-    os.path.join('notebooks', '1.0-Your-name-(or-your-organization,-company,-'
-                 'team,-etc.)-Initial-Exploration.ipynb'),
+    os.path.join('notebooks', '0.0-Notebook-Template.ipynb'),
     os.path.join('src', '__init__.py'),
     os.path.join('src', 'utils.py'),
     os.path.join('src', 'data', '__init__.py'),
