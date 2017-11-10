@@ -1,6 +1,10 @@
 click
+pytest
 sphinx
 sphinx_rtd_theme
 coverage
 awscli
 flake8
+numpy
+pandas
+jupyter
