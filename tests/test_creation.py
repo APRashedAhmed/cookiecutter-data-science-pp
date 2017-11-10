@@ -57,6 +57,40 @@ expected_folders = [
     os.path.join('src', 'visualization')
 ]
 
+expected_files = [
+    '.coveragerc',
+    '.gitignore',
+    '.landscape.yml',
+    '.travis.yml',
+    'LICENSE',
+    'Makefile',
+    'MANIFEST.in',
+    'README.rst',
+    'requirements.txt',
+    'run_tests.py',
+    'setup.py',
+    'setup.cfg',
+    'versioneer.py',
+    os.path.join('docs', 'commands.rst'),
+    os.path.join('docs', 'conf.py'),
+    os.path.join('docs', 'getting-started.rst'),
+    os.path.join('docs', 'index.rst'),
+    os.path.join('docs', 'make.bat'),
+    os.path.join('docs', 'Makefile'),
+    os.path.join('notebooks', '1.0-Your-name-(or-your-organization,-company,-'
+                 'team,-etc.)-Initial-Exploration.ipynb'),
+    os.path.join('src', '__init__.py'),
+    os.path.join('src', 'data', '__init__.py'),
+    os.path.join('src', 'data', 'make_dataset.py'),    
+    os.path.join('src', 'features', '__init__.py'),
+    os.path.join('src', 'features', 'build_features.py'),    
+    os.path.join('src', 'models', '__init__.py'),
+    os.path.join('src', 'models', 'predict_model.py'),
+    os.path.join('src', 'models', 'train_model.py'),    
+    os.path.join('src', 'visualization', '__init__.py'),
+    os.path.join('src', 'visualization', 'visualize.py'),    
+    ]
+
 @pytest.mark.parametrize("expected_folder", expected_folders)
 def test_folder(default_baked_project, expected_folder):
     path_expected_folder = Path(default_baked_project) / expected_folder
@@ -79,34 +113,6 @@ def no_curlies(filepath):
 
     template_strings_in_file = [s in data for s in template_strings]
     return not any(template_strings_in_file)
-
-# Test all the top level files were created propertly
-
-expected_files = [
-    '.coveragerc',
-    '.gitignore',
-    '.landscape.yml',
-    '.travis.yml',
-    'LICENSE',
-    'Makefile',
-    'MANIFEST.in',
-    'README.rst',
-    'requirements.txt',
-    'run_tests.py',
-    'setup.py',
-    'setup.cfg',
-    'versioneer.py',
-    os.path.join('src', '__init__.py'),
-    os.path.join('src', 'data', '__init__.py'),
-    os.path.join('src', 'data', 'make_dataset.py'),    
-    os.path.join('src', 'features', '__init__.py'),
-    os.path.join('src', 'features', 'build_features.py'),    
-    os.path.join('src', 'models', '__init__.py'),
-    os.path.join('src', 'models', 'predict_model.py'),
-    os.path.join('src', 'models', 'train_model.py'),    
-    os.path.join('src', 'visualization', '__init__.py'),
-    os.path.join('src', 'visualization', 'visualize.py'),    
-    ]
 
 @pytest.mark.parametrize("expected_file", expected_files)
 def test_file(default_baked_project, expected_file):
