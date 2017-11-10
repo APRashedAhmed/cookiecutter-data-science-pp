@@ -1,5 +1,5 @@
 """
-Tests for pyutils.pyutils
+Tests for {{ cookiecutter.import_name }}.utils.py
 """
 ############
 # Standard #
