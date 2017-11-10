@@ -40,11 +40,15 @@ def absolute_submodule_path(submodule, cur_dir=inspect.stack()[0][1]):
 
 # Define some Path objects to folders within the repo
 DIR_REPO = Path(absolute_submodule_path("{{ cookiecutter.repo_name }}/"))
-DIR_DATA_EXT = DIR_REPO / "data/external/"
-DIR_DATA_INT = DIR_REPO / "data/interim/"
-DIR_DATA_PROC = DIR_REPO / "data/processed/"
-DIR_LOGS = DIR_REPO / "logs/"
-DIR_NOTEBOOKS = DIR_REPO / "notebooks/"
+DIR_DATA = DIR_REPO / "data"
+DIR_DATA_EXT = DIR_DATA / "external"
+DIR_DATA_INT = DIR_DATA / "interim"
+DIR_DATA_PROC = DIR_DATA / "processed"
+DIR_FIG = DIR_REPO / "figures"
+DIR_FIG_FINAL = DIR_FIG / "finalized"
+DIR_FIG_UNSORTED = DIR_FIG / "unsorted"
+DIR_LOGS = DIR_REPO / "logs"
+DIR_NOTEBOOKS = DIR_REPO / "notebooks"
 
 def get_logger(name, stream_level=logging.INFO, log_file=True, 
                log_dir=DIR_LOGS, max_bytes=10*1024*1024):

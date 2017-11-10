@@ -24,8 +24,9 @@ test_values = [2, np.pi, True, "test_s", "10", ["test"], ("test",), {"test":1}]
 test_lists = [[1,2,3,4,5], [[1],[2],[3],[4],[5]], [[1,2,3],[4,5]],
               [[1,[2,[3,[4,[5]]]]]]]
 test_dir_paths = [
-    utils.DIR_REPO, utils.DIR_DATA_EXT, utils.DIR_DATA_INT, utils.DIR_DATA_PROC,
-    utils.DIR_LOGS, utils.DIR_NOTEBOOKS,
+    utils.DIR_REPO, utils.DIR_DATA, utils.DIR_DATA_EXT, utils.DIR_DATA_INT,
+    utils.DIR_DATA_PROC, utils.DIR_FIG, utils.DIR_FIG_FINAL,
+    utils.DIR_FIG_UNSORTED, utils.DIR_LOGS, utils.DIR_NOTEBOOKS,
 ]
 
 @pytest.mark.parametrize("test", test_values)
