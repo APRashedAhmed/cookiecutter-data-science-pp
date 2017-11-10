@@ -1,5 +1,6 @@
 click
-Sphinx
+sphinx
+sphinx_rtd_theme
 coverage
 awscli
 flake8
