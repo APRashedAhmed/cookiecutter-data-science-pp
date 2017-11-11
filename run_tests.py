@@ -8,6 +8,12 @@ import pytest
 from pathlib import Path
 import logging
 from logging.handlers import RotatingFileHandler
+import shutil
+
+###############
+# Third Party #
+###############
+from cookiecutter import main
 
 if __name__ == '__main__':
     # Show output results from every test function
@@ -43,6 +49,26 @@ if __name__ == '__main__':
     root_logger.addHandler(handler)
 
     logger = logging.getLogger(__name__)
-    logger.info('pytest arguments: {}'.format(args))    
+    logger.info('pytest arguments: {}'.format(args))
 
-    sys.exit(pytest.main(args))
+    # Decide if we are running tests on the cookiecutter
+    if '--no-template' in args:
+        args.remove('--no-template')
+        args.append('--ignore=tests')
+        
+    # Run the tests in the project
+    out_dir = Path('data-project')
+    if '--no-project' in args:
+        args.remove('--no-project')
+    else:
+        CCDS_ROOT = os.path.abspath(os.path.join(__file__, os.pardir))
+        main.cookiecutter(CCDS_ROOT, no_input=True, extra_context={},
+                          output_dir=str(out_dir))
+
+    # Run the tests
+    try:
+        pytest.main(args)
+    finally:
+        # Cleanup the created project if it exists
+        if out_dir.exists(): shutil.rmtree(str(out_dir))
+            

@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 @pytest.mark.parametrize("bad_value", [np.inf, -np.inf, np.nan])
 def test_remove_nan_inf(bad_value):
-    for i in range(5):
+    for i in range(1, 5):
         df = pd.DataFrame([1,2,3,4,5,6,7,8,9,10])        
         df[:i] = bad_value
         df_replaced = df.replace([np.inf, -np.inf], np.nan)
