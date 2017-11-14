@@ -25,7 +25,6 @@ Contents:
    getting-started
 
 
-
 Indices and tables
 ==================
 

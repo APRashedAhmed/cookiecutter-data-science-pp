@@ -132,7 +132,7 @@ def as_list(obj, length=None, tp=None, iter_to_list=True):
     Force an argument to be a list, optionally of a given length, optionally
     with all elements cast to a given type if not None.
 
-    Paramters
+    Parameters
     ---------
     obj : Object
         The obj we want to convert to a list.
