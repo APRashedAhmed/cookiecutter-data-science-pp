@@ -50,7 +50,7 @@ if __name__ == '__main__':
 
     logger = logging.getLogger(__name__)
     logger.info('pytest arguments: {}'.format(args))
-
+    
     # Decide if we are running tests on the cookiecutter
     if '--no-template' in args:
         args.remove('--no-template')
@@ -67,8 +67,7 @@ if __name__ == '__main__':
 
     # Run the tests
     try:
-        pytest.main(args)
+        sys.exit(pytest.main(args))
     finally:
         # Cleanup the created project if it exists
         if out_dir.exists(): shutil.rmtree(str(out_dir))
-            
