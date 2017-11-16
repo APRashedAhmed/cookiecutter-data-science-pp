@@ -4,7 +4,9 @@ Tests for {{ cookiecutter.import_name }}.utils.py
 ############
 # Standard #
 ############
+import inspect
 import logging
+from pathlib import Path
 from collections.abc import Iterable
 
 ###############
@@ -23,11 +25,22 @@ logger = logging.getLogger(__name__)
 test_values = [2, np.pi, True, "test_s", "10", ["test"], ("test",), {"test":1}]
 test_lists = [[1,2,3,4,5], [[1],[2],[3],[4],[5]], [[1,2,3],[4,5]],
               [[1,[2,[3,[4,[5]]]]]]]
-test_dir_paths = [
-    utils.DIR_REPO, utils.DIR_DATA, utils.DIR_DATA_EXT, utils.DIR_DATA_INT,
-    utils.DIR_DATA_PROC, utils.DIR_FIG, utils.DIR_FIG_FINAL,
-    utils.DIR_FIG_UNSORTED, utils.DIR_LOGS, utils.DIR_NOTEBOOKS,
-]
+
+def get_objects_in_module(module, cls=None):
+    objects = []
+    all_objects = inspect.getmembers(module)
+    for _, obj in all_objects:
+        if cls is not None:
+            try:
+                if not isinstance(obj, cls):
+                    continue
+            except TypeError:
+                continue
+        objects.append(obj)
+    return objects
+
+test_dir_paths_and_names = [(p, "/".join(p.parts[-2:])) for p in
+                             get_objects_in_module(utils, Path)]
 
 @pytest.mark.parametrize("test", test_values)
 def test_isiterable_correctly_returns(test):
@@ -43,8 +56,7 @@ def test_isiterable_correctly_returns(test):
 def test_flatten_works_correctly(test):
     assert utils.flatten(test) == [1,2,3,4,5]
 
-@pytest.mark.parametrize("dir_path", test_dir_paths)
-def test_importable_dirs_exist(dir_path):
-    assert dir_path.exists()
-
+@pytest.mark.parametrize("path,name", test_dir_paths_and_names)
+def test_importable_dirs_exist(path, name):
+    assert path.exists()
     
