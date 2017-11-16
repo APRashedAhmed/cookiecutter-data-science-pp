@@ -1,4 +1,5 @@
 cookiecutter
 pytest
+simplejson
 sphinx
 sphinx-rtd-theme
