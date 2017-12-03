@@ -31,8 +31,8 @@ github:
 	git remote add origin $$remote ; \
 	git push -u origin master ; \
 	else \
-	echo "Project already setup with git"; \
-	echo "To run github setup, remove '.git' folder"; \
+	printf ">>> Project already setup with git.\n"; \
+	printf ">>> To run github setup, remove '.git' folder.\n"; \
 	fi
 
 ## Delete all compiled Python files
@@ -62,10 +62,10 @@ endif
 ## Set up conda environment
 conda-env:
 ifeq (True,$(HAS_CONDA))
-		@echo ">>> Detected conda, creating conda environment. This could take a few minutes ..."
+		@printf ">>> Creating '$(IMPORT_NAME)' conda environment. This could take a few minutes ...\n"
 		@conda create --name $(IMPORT_NAME) `cat requirements.txt` -c conda-forge
 else
-		@echo ">>> Conda not detected conda, add it to environment and try again."
+		@printf ">>> Conda not detected conda, add it to environment and try again.\n"
 endif
 
 ## Installs project versioneer
