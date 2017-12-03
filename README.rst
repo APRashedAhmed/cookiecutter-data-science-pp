@@ -5,7 +5,7 @@ Apra Data Science Cookiecutter
 .. image:: https://travis-ci.org/apra93/cookiecutter-data-science-apra.svg?branch=master
     :target: https://travis-ci.org/apra93/cookiecutter-data-science-apra
 
-An extension of the standard data science cookiecutter template that adds scripts that I've found to be useful for data-oriented projects. 
+An extension of the standard data science cookiecutter template that adds a number of things I've found to be useful for data-oriented projects. This includes small scripts, pytest setup, versioneer, landscape, travis-ci, and better logging.
 
 Links to the main data science cookiecutter:
 
@@ -30,7 +30,7 @@ or ::
 Starting a New Project
 ----------------------
 
-If using for the first time or in need of a new clone: ::
+If you're using this cookiecutter for the first time or are in need of an updated clone: ::
 
   $ cookiecutter https://github.com/apra93/cookiecutter-data-science-apra
 
@@ -117,8 +117,6 @@ The directory structure of your new project looks like this:
   ├── Makefile                <- Makefile with commands like `make data` or
   │				 `make train`
   │
-  ├── MANIFEST.in             <- Manifest file for versioneer
-  │
   ├── README.md               <- The top-level README for developers using this
   │				 project
   │
@@ -131,9 +129,7 @@ The directory structure of your new project looks like this:
   │
   ├── setup.cfg               <- Setup file for versioneer
   │
-  ├── setup.py                <- `setup.py` file configured to use versioneer
-  │
-  └── versioneer.py           <- Versioneer source file
+  └── setup.py                <- `setup.py` file configured to use versioneer
 
 
 Installing Development Requirements

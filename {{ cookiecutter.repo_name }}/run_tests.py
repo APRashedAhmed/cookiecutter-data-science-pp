@@ -24,13 +24,16 @@ if __name__ == '__main__':
     root_logger = logging.getLogger()
     root_logger.setLevel(logging.DEBUG)
     log_dir = Path(os.path.dirname(__file__)) / 'logs'
-    log_file = log_dir / 'run_tests_log.txt'
+    log_file = log_dir / 'tests.log'
 
     if not log_dir.exists():
         log_dir.mkdir(parents=True)
-        # Create the file if it doesnt already exist
+    # Create the file if it doesnt already exist
     if not log_file.exists():
         log_file.touch()
+    # Set permissions to be accessible to everyone
+    if log_file.stat().st_mode != 33279:
+        log_file.chmod(0o777)        
         
     handler = RotatingFileHandler(str(log_file), backupCount=5,
                                   maxBytes=1024*1024*10, encoding=None, delay=0)

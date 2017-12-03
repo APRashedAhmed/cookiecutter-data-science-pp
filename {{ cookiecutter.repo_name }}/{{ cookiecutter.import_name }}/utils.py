@@ -1,5 +1,5 @@
 """
-Script for utility functions
+Script for utility functions in {{ cookiecutter.repo_name }}
 """
 ############
 # Standard #
@@ -11,6 +11,7 @@ from collections.abc import Iterable
 from logging.handlers import RotatingFileHandler
 
 logger = logging.getLogger(__name__)
+
 
 class RotatingFileHandlerRelativePath(logging.handlers.RotatingFileHandler):
     """

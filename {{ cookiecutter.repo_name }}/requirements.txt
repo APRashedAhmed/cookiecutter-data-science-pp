@@ -1,7 +1,5 @@
 click
 pytest
-sphinx
-sphinx_rtd_theme
 coverage
 awscli
 flake8
@@ -10,3 +8,4 @@ pandas
 jupyter
 pyyaml
 coloredlogs
+versioneer
