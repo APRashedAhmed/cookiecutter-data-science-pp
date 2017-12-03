@@ -1,11 +1,11 @@
-==============================
-Apra Data Science Cookiecutter
-==============================
+===========================
+Data Science++ Cookiecutter
+===========================
 
-.. image:: https://travis-ci.org/apra93/cookiecutter-data-science-apra.svg?branch=master
-    :target: https://travis-ci.org/apra93/cookiecutter-data-science-apra
+.. image:: https://travis-ci.org/apra93/cookiecutter-data-science-pp.svg?branch=master
+    :target: https://travis-ci.org/apra93/cookiecutter-data-science-pp
 
-An extension of the standard data science cookiecutter template that adds a number of things I've found to be useful for data-oriented projects. This includes small scripts, pytest setup, versioneer, landscape, travis-ci, and better logging.
+An extension of the standard data science cookiecutter template that adds a number of things I've found to be useful for data-oriented projects. This includes some small scripts, pytest setup, versioneer, landscape, travis-ci, and better logging.
 
 Links to the main data science cookiecutter:
 
@@ -32,11 +32,11 @@ Starting a New Project
 
 If you're using this cookiecutter for the first time or are in need of an updated clone: ::
 
-  $ cookiecutter https://github.com/apra93/cookiecutter-data-science-apra
+  $ cookiecutter https://github.com/apra93/cookiecutter-data-science-pp
 
 Otherwise: ::
 
-  $ cookiecutter cookiecutter-data-science-apra
+  $ cookiecutter cookiecutter-data-science-pp
 
 
 Resulting Directory Structure
