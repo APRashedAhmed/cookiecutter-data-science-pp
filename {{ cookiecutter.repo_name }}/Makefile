@@ -1,4 +1,4 @@
-.PHONY: clean data lint requirements sync_data_to_s3 sync_data_from_s3
+.PHONY: clean data lint github requirements sync_data_to_s3 sync_data_from_s3
 
 #################################################################################
 # GLOBALS                                                                       #
@@ -19,6 +19,20 @@ endif
 #################################################################################
 # COMMANDS                                                                      #
 #################################################################################
+
+## Adds the project to github
+github:
+	@if [ ! -d ".git" ]; then \
+	git init ; \
+	git add * ; \
+	git commit -m "Initial Commit" ; \
+	read -p "Enter remote repo https: " remote ; \
+	git remote add origin $$remote ; \
+	git push -u origin master ; \
+	else \
+	echo "Project already setup with git"; \
+	echo "To run github setup, remove '.git' folder"; \
+	fi
 
 ## Install Python Dependencies
 requirements: test_environment
