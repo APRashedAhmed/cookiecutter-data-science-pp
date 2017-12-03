@@ -12,6 +12,16 @@ from logging.handlers import RotatingFileHandler
 
 logger = logging.getLogger(__name__)
 
+class RotatingFileHandlerRelativePath(logging.handlers.RotatingFileHandler):
+    """
+    Extension of the filehandler class that appends the current directory to the
+    inputted filename. This is so the log files can be found relative to this 
+    file rather than from wherever the script is run.
+    """
+    def __init__(self, filename, *args, **kwargs):
+        filename_full = os.path.join(os.path.dirname(__file__), filename)
+        super().__init__(filename_full, *args, **kwargs)
+
 def absolute_submodule_path(submodule, cur_dir=inspect.stack()[0][1]):
     """
     Returns the absolute path of the inputted submodule based on an inputted
@@ -50,82 +60,72 @@ DIR_FIG_UNSORTED = DIR_FIG / "unsorted"
 DIR_LOGS = DIR_REPO / "logs"
 DIR_NOTEBOOKS = DIR_REPO / "notebooks"
 
-def get_logger(name, stream_level=logging.INFO, log_file=True, 
-               log_dir=DIR_LOGS, max_bytes=10*1024*1024):
+def setup_logging(path_yaml=None, dir_logs=None, default_level=logging.INFO):
     """
-    Returns a properly configured logger that has a stream handler and a file
-    handler. This was made so that immediately setting up both a stream and
-    file handler is as easy as just calling this function and forgetting about
-    the details.
+    Sets up the logging module to make a properly configured logger.
+
+    This will go into the ``logging.yml`` file in the top level directory, and
+    try to load the logging configuration. If it fails for any reason, it will
+    just use the default configuration. For more details on how the logger will
+    be configured, see the ``logging.yml`` file.
 
     Parameters
     ----------
-    name : str
-        Name for the logger.
+    path_yaml : str or Path, optional
+        Path to the yaml file.
 
-    stream_level : logging.level, optional
-        Logging level for what prints to the console.
-
-    log_file : bool, optional
-        Save to a log file.
-
-    log_dir : Path, optional
-        Path to where the log file should be saved.
+    dir_logs : str or Path, optional
+        Path to the log directory.
         
-    max_bytes : int, optional
-        Size of the log file in bytes.
-
-    Returns
-    -------
-    logger : logging.logger
-        Properly configured logger that has a stream and optionally a file
-        handler.
+    default_level : logging.LEVEL, optional
+        Logging level for the default logging setup if the yaml fails.
     """
-    logger = logging.getLogger(name)
-    logger.setLevel(logging.DEBUG)
-    
-    # One format to display the user and another for debugging
-    format_stream = "%(message)4s"
-    format_debug = "%(asctime)s:%(filename)s:%(lineno)4s - " \
-      "%(funcName)s():    %(levelname)-8s %(message)4s"
-    # Prevent logging from propagating to the root logger
-    logger.propagate = 0
-
-    # Setup the stream logger
-    console = logging.StreamHandler()
-    console.setLevel(stream_level)
-
-    # Print log messages nicely if we arent in debug mode
-    if stream_level >= logging.INFO:
-        stream_formatter = logging.Formatter(format_stream)
+    # Get the yaml path
+    if path_yaml is None:
+        path_yaml = DIR_MODULE / "logging.yml"
+    # Make sure we are using Path objects
+    else: 
+        path_yaml = Path(path_yaml)
+    # Get the log directory
+    if dir_logs is None:
+        dir_logs = DIR_LOGS
+    # Make sure we are using Path objects
     else:
-        stream_formatter = logging.Formatter(format_debug)
-    console.setFormatter(stream_formatter)
-    logger.addHandler(console)
-    
-    # Log to a file
-    if log_file:
-        log_file = log_dir / "log.txt"
+        dir_logs = Path(dir_logs)
+        
+    # Make the log directory if it doesn't exist
+    if not dir_logs.exists(): 
+        dir_logs.mkdir()
 
-        # Create the inputted foler if it doesnt already exist
-        if not log_dir.exists():
-            log_dir.mkdir(parents=True)
-        # Create the file if it doesnt already exist
-        if not log_file.exists():
-            log_file.touch()
+    log_files = ['info.log', 'errors.log', 'debug.log',  'critical.log', 
+                 'warn.log']
+    for log_file in log_files:
+        path_log_file = dir_logs / log_file
+        # Make the log files if they don't exist
+        if not path_log_file.exists():
+            path_log_file.touch()
+        # Set permissions to be accessible to everyone
+        if path_log_file.stat().st_mode != 33279:
+            path_log_file.chmod(0o777)        
 
-        # Setup the file handler
-        file_handler = RotatingFileHandler(
-            str(log_file), mode='a', maxBytes=max_bytes, backupCount=2,
-            encoding=None, delay=0)
-        file_formatter = logging.Formatter(format_debug)
-        file_handler.setFormatter(file_formatter)
+    # Set up everything if the yaml file is present
+    if path_yaml.exists():
+        with open(path_yaml, 'rt') as f:
+            try:
+                config = yaml.safe_load(f.read())
+                logging.config.dictConfig(config)
+                coloredlogs.install()
+            except Exception as e:
+                print('Error in Logging Configuration. Using default configs')
+                logging.basicConfig(level=default_level)
+                logging.error(e)
+                coloredlogs.install(level=default_level)
 
-        # Always save everything
-        file_handler.setLevel(logging.DEBUG)
-        logger.addHandler(file_handler)
-
-    return logger
+    # Just use the normal configuration
+    else:
+        logging.basicConfig(level=default_level)
+        coloredlogs.install(level=default_level)
+        print('Failed to load configuration file. Using default configs')
 
 def as_list(obj, length=None, tp=None, iter_to_list=True):
     """
