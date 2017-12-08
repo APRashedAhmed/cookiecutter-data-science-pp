@@ -4,11 +4,19 @@ Script for utility functions in {{ cookiecutter.repo_name }}
 ############
 # Standard #
 ############
-import logging
+import os
 import inspect
+import logging
+import logging.config
 from pathlib import Path
 from collections.abc import Iterable
 from logging.handlers import RotatingFileHandler
+
+###############
+# Third Party #
+###############
+import yaml
+import coloredlogs
 
 logger = logging.getLogger(__name__)
 
@@ -83,7 +91,7 @@ def setup_logging(path_yaml=None, dir_logs=None, default_level=logging.INFO):
     """
     # Get the yaml path
     if path_yaml is None:
-        path_yaml = DIR_MODULE / "logging.yml"
+        path_yaml = DIR_REPO / "logging.yml"
     # Make sure we are using Path objects
     else: 
         path_yaml = Path(path_yaml)

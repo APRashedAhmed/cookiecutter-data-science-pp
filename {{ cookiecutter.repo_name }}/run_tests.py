@@ -24,7 +24,7 @@ if __name__ == '__main__':
     root_logger = logging.getLogger()
     root_logger.setLevel(logging.DEBUG)
     log_dir = Path(os.path.dirname(__file__)) / 'logs'
-    log_file = log_dir / 'tests.log'
+    log_file = log_dir / 'run_tests.log'
 
     if not log_dir.exists():
         log_dir.mkdir(parents=True)
