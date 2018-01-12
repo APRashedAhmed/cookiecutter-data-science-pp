@@ -104,10 +104,15 @@ ENV/
 *.swp
 
 # None of the logs 
-/logs/*
+logs/*
 
 # None of the data
-/data/*
+data/*.*
+data/external/* 
 
 # None of the unsorted figures
-figures/unsorted/
+figures/unsorted/*
+figures/*.*
+
+# But keep all the .gitkeep files
+!*.gitkeep
