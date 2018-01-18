@@ -9,3 +9,4 @@ jupyter
 pyyaml
 coloredlogs
 versioneer
+matplotlib
