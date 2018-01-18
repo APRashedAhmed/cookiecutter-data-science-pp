@@ -68,6 +68,8 @@ else
 		@printf ">>> Conda not detected conda, add it to environment and try again.\n"
 endif
 
+# while read requirement; do conda install --yes $requirement || pip install $requirement; done < requirements.txt
+
 ## Installs project versioneer
 versioneer:
 	@versioneer install
