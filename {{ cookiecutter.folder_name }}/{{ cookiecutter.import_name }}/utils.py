@@ -1,9 +1,6 @@
 """
 Script for utility functions in {{ cookiecutter.folder_name }}
 """
-############
-# Standard #
-############
 import os
 import inspect
 import logging
@@ -12,11 +9,10 @@ from pathlib import Path
 from collections.abc import Iterable
 from logging.handlers import RotatingFileHandler
 
-###############
-# Third Party #
-###############
 import yaml
 import coloredlogs
+
+from .constants import DIR_REPO, DIR_LOGS
 
 logger = logging.getLogger(__name__)
 
@@ -30,44 +26,6 @@ class RotatingFileHandlerRelativePath(logging.handlers.RotatingFileHandler):
     def __init__(self, filename, *args, **kwargs):
         filename_full = os.path.join(os.path.dirname(__file__), filename)
         super().__init__(filename_full, *args, **kwargs)
-
-def absolute_submodule_path(submodule, cur_dir=inspect.stack()[0][1]):
-    """
-    Returns the absolute path of the inputted submodule based on an inputted
-    absolute path, or the absolute path of this file.
-
-    Parameters
-    ----------
-    submodule : str or Path
-        Desired submodule path.
-
-    cur_dir : str or Path, optional
-        Absolute path to use as a template for the full submodule path.
-
-    Returns
-    -------
-    full_path : str
-        Full string path to the inputted submodule.
-    """
-    dir_parts = Path(cur_dir).parts
-    sub_parts = Path(submodule).parts
-    base_path = Path(*dir_parts[:dir_parts.index(sub_parts[0])])
-    if str(base_path) == ".":
-        logger.warning("Could not match base path with desired submodule.")
-    full_path = base_path / Path(submodule)
-    return str(full_path)
-
-# Define some Path objects to folders within the repo
-DIR_REPO = Path(absolute_submodule_path("{{ cookiecutter.folder_name }}/"))
-DIR_DATA = DIR_REPO / "data"
-DIR_DATA_EXT = DIR_DATA / "external"
-DIR_DATA_INT = DIR_DATA / "interim"
-DIR_DATA_PROC = DIR_DATA / "processed"
-DIR_FIG = DIR_REPO / "figures"
-DIR_FIG_FINAL = DIR_FIG / "finalized"
-DIR_FIG_UNSORTED = DIR_FIG / "unsorted"
-DIR_LOGS = DIR_REPO / "logs"
-DIR_NOTEBOOKS = DIR_REPO / "notebooks"
 
 def setup_logging(path_yaml=None, dir_logs=None, default_level=logging.INFO):
     """
