@@ -1,3 +1,28 @@
+# Ignore the cache dir
+cache/*
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.py~
+*$py.class
+
+# Backup Files
+*~
+*#
+.#*
+#*
+
+# Pytest cache
+.pytest*
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Site pages for the documentation
 docs/site/
 
 # OSX Junk
@@ -9,3 +34,6 @@ tests/__pycache__/*
 
 # log files
 logs/*
+
+# But keep all the .gitkeep files
+!.gitkeep
