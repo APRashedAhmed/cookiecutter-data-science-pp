@@ -1,5 +1,5 @@
 cookiecutter
-pytest
 simplejson
+doctr
 sphinx
 sphinx-rtd-theme
