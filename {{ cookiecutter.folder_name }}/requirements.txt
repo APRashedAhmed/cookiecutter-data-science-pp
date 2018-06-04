@@ -10,3 +10,4 @@ pyyaml
 coloredlogs
 versioneer
 matplotlib
+watermark
