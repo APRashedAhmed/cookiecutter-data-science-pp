@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
-SPHINXPROJ    = {{ cookiecutter.repo_name }}
+SPHINXPROJ    = {{ cookiecutter.folder_name }}
 SOURCEDIR     = source
 PAPER         =
 BUILDDIR      = _build
@@ -79,17 +79,17 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/{{ cookiecutter.repo_name }}.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/{{ cookiecutter.folder_name }}.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/{{ cookiecutter.repo_name }}.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/{{ cookiecutter.folder_name }}.qhc"
 
 devhelp:
 	$(SPHINXBUILD) -b devhelp $(ALLSPHINXOPTS) $(BUILDDIR)/devhelp
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/{{ cookiecutter.repo_name }}"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/{{ cookiecutter.repo_name }}"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/{{ cookiecutter.folder_name }}"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/{{ cookiecutter.folder_name }}"
 	@echo "# devhelp"
 
 epub:

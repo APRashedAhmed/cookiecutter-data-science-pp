@@ -1,4 +1,4 @@
-# Logging yml file for {{ cookiecutter.repo_name }}
+# Logging yml file for {{ cookiecutter.folder_name }}
 
 # This logging setup will print all 'info' level messages to the console
 # unchanged, so it replaces print. In the background, there are handlers for

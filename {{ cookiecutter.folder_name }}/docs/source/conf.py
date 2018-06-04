@@ -168,7 +168,7 @@ html_static_path = ['_static']
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = '{{ cookiecutter.repo_name }}doc'
+htmlhelp_basename = '{{ cookiecutter.folder_name }}doc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -188,7 +188,7 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
     ('index',
-     '{{ cookiecutter.repo_name }}.tex',
+     '{{ cookiecutter.folder_name }}.tex',
      u'{{ cookiecutter.project_name }} Documentation',
      u"{{ cookiecutter.author_name }}", 'manual'),
 ]
@@ -219,7 +219,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', '{{ cookiecutter.repo_name }}', u'{{ cookiecutter.project_name }} Documentation',
+    ('index', '{{ cookiecutter.folder_name }}', u'{{ cookiecutter.project_name }} Documentation',
      [u"{{ cookiecutter.author_name }}"], 1)
 ]
 
@@ -233,7 +233,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    ('index', '{{ cookiecutter.repo_name }}', u'{{ cookiecutter.project_name }} Documentation',
+    ('index', '{{ cookiecutter.folder_name }}', u'{{ cookiecutter.project_name }} Documentation',
      u"{{ cookiecutter.author_name }}", '{{ cookiecutter.project_name }}',
      '{{ cookiecutter.description }}', 'Miscellaneous'),
 ]

@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-############
-# Standard #
-############
 import os
 import sys
 import pytest
@@ -10,15 +6,13 @@ import logging
 from logging.handlers import RotatingFileHandler
 import shutil
 
-###############
-# Third Party #
-###############
 from cookiecutter import main
 
 if __name__ == '__main__':
     # Show output results from every test function
     # Show the message output for skipped and expected failures
-    args = ['-v', '-vrxs', '--ignore={{ cookiecutter.repo_name }}']
+    # Skip running the tests in the cookiecutter folder for now
+    args = ['-v', '-vrxs', '--ignore={{ cookiecutter.folder_name }}']
 
     # Add extra arguments
     if len(sys.argv) >1:

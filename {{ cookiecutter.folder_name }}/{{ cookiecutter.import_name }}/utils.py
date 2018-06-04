@@ -1,5 +1,5 @@
 """
-Script for utility functions in {{ cookiecutter.repo_name }}
+Script for utility functions in {{ cookiecutter.folder_name }}
 """
 ############
 # Standard #
@@ -58,7 +58,7 @@ def absolute_submodule_path(submodule, cur_dir=inspect.stack()[0][1]):
     return str(full_path)
 
 # Define some Path objects to folders within the repo
-DIR_REPO = Path(absolute_submodule_path("{{ cookiecutter.repo_name }}/"))
+DIR_REPO = Path(absolute_submodule_path("{{ cookiecutter.folder_name }}/"))
 DIR_DATA = DIR_REPO / "data"
 DIR_DATA_EXT = DIR_DATA / "external"
 DIR_DATA_INT = DIR_DATA / "interim"
