@@ -1,7 +1,7 @@
 {
     "project_name": "project_name",
     "folder_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
-    "repo_name": "{{ cookiecutter.folder_name }}"
+    "repo_name": "{{ cookiecutter.folder_name }}",
     "import_name": "src",
     "author_name": "Your name (or your organization, company, team, etc.)",
     "description": "A short description of the project.",
