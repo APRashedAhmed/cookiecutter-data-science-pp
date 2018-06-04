@@ -1,13 +1,7 @@
-############
-# Standard #
-############
 import os
 import shutil
 from pathlib import Path
 
-###############
-# Third Party #
-###############
 import pytest
 import simplejson as sjson
 from cookiecutter import main
@@ -40,9 +34,8 @@ def default_baked_project(tmpdir):
     shutil.rmtree(out_dir)
 
 def substitute_cookiecutter_json(name_tuple):
-    """
-    Substitutes the cookiecutter template names with their values from the json
-    file.
+    """Substitutes the cookiecutter template names with their values from the
+    json file.
     """
     substituted = []
     for part in name_tuple:
@@ -65,8 +58,7 @@ def substitute_cookiecutter_json(name_tuple):
 def get_contents(root_dir=TEMPLATE_DIR, omitted_dirs=set([
         ".git", ".cache", "__pycache__", ".ipynb_checkpoints"]),
                  omitted_files=set([])):
-    """
-    Returns two lists of directories and files of the cookiecutter template
+    """Returns two lists of directories and files of the cookiecutter template
     directory.
     """
     dirs, files = [], []
@@ -101,8 +93,7 @@ def test_folder(default_baked_project, path):
     assert path_expected_dir.is_dir()
 
 def no_curlies(filepath):
-    """
-    Utility to make sure no curly braces appear in a file. That is, was jinja
+    """Utility to make sure no curly braces appear in a file. That is, was jinja
     able to render everthing?
     """
     with open(filepath, 'r') as f:
