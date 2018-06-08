@@ -1,9 +1,17 @@
 ===============================
 {{ cookiecutter.project_name }}
 ===============================
+{% if cookiecutter.open_source_license == 'MIT' %}
+
+.. image:: https://img.shields.io/badge/license-MIT-blue.svg
+   :target: https://github.com/{{ cookiecutter.author_name }}/{{ cookiecutter.repo_name }}/blob/master/LICENSE
+{% elif cookiecutter.open_source_license == 'BSD' %}
+
+.. image:: https://img.shields.io/badge/license-BSD-blue.svg
+   :target: https://github.com/{{ cookiecutter.author_name }}/{{ cookiecutter.repo_name }}/blob/master/LICENSE
+{% endif %}
 
 {{ cookiecutter.description }}
-
 
 Requirements
 ------------
