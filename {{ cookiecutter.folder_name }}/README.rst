@@ -9,6 +9,11 @@
 
 .. image:: https://img.shields.io/badge/license-BSD-blue.svg
    :target: https://github.com/{{ cookiecutter.author_name }}/{{ cookiecutter.repo_name }}/blob/master/LICENSE
+
+{% elif cookiecutter.open_source_license == 'GPL' %}
+
+.. image:: https://img.shields.io/badge/license-GPL-blue.svg
+   :target: https://github.com/{{ cookiecutter.author_name }}/{{ cookiecutter.repo_name }}/blob/master/LICENSE
 {% endif %}
 
 {{ cookiecutter.description }}
