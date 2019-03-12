@@ -11,3 +11,4 @@ coloredlogs
 versioneer
 matplotlib
 watermark
+tqdm
