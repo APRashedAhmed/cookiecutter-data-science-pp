@@ -17,19 +17,17 @@ from .constants import DIR_REPO, DIR_LOGS
 logger = logging.getLogger(__name__)
 
 
-class RotatingFileHandlerRelativePath(logging.handlers.RotatingFileHandler):
-    """
-    Extension of the filehandler class that appends the current directory to the
-    inputted filename. This is so the log files can be found relative to this 
-    file rather than from wherever the script is run.
+class RotatingFileHandlerRelativePath(RotatingFileHandler):
+    """Extension of the filehandler class that appends the current directory to
+    the inputted filename. This is so the log files can be found relative to
+    this file rather than from wherever the script is run.
     """
     def __init__(self, filename, *args, **kwargs):
         filename_full = os.path.join(os.path.dirname(__file__), filename)
         super().__init__(filename_full, *args, **kwargs)
 
 def setup_logging(path_yaml=None, dir_logs=None, default_level=logging.INFO):
-    """
-    Sets up the logging module to make a properly configured logger.
+    """Sets up the logging module to make a properly configured logger.
 
     This will go into the ``logging.yml`` file in the top level directory, and
     try to load the logging configuration. If it fails for any reason, it will
@@ -95,8 +93,7 @@ def setup_logging(path_yaml=None, dir_logs=None, default_level=logging.INFO):
         print('Failed to load configuration file. Using default configs')
 
 def as_list(obj, length=None, tp=None, iter_to_list=True):
-    """
-    Force an argument to be a list, optionally of a given length, optionally
+    """Force an argument to be a list, optionally of a given length, optionally
     with all elements cast to a given type if not None.
 
     Parameters
@@ -147,8 +144,7 @@ def as_list(obj, length=None, tp=None, iter_to_list=True):
     return obj
 
 def isiterable(obj):
-    """
-    Function that determines if an object is an iterable, not including 
+    """Function that determines if an object is an iterable, not including 
     str.
 
     Parameters
@@ -166,9 +162,9 @@ def isiterable(obj):
     else:
         return isinstance(obj, Iterable)
 
-def _flatten(inp_iter):
-    """
-    Recursively iterate through values in nested iterables.
+def flatten(inp_iter):
+    """Recursively iterate through values in nested iterables, and return a
+    flattened list of the inputted iterable.
 
     Parameters
     ----------
@@ -178,27 +174,14 @@ def _flatten(inp_iter):
     Returns
     -------
     value : object
-        The contents of the iterable
-    """
-    for val in inp_iter:
-        if isiterable(val):
-            for ival in _flatten(val):
-                yield ival
-        else:
-            yield val
-            
-def flatten(inp_iter):
-    """
-    Returns a flattened list of the inputted iterable.
+    	The contents of the iterable as a flat list.
 
-    Parameters
-    ----------
-    inp_iter : iterable
-        The iterable to flatten.
-
-    Returns
-    -------
-    flattened_iter : list
-        The contents of the iterable as a flat list
     """
-    return list(_flatten(inp_iter))
+    def inner(inp):
+        for val in inp:
+            if isiterable(val):
+                for ival in inner(val):
+                    yield ival
+            else:
+                yield val
+    return list(inner(inp_iter))
