@@ -1,3 +1,6 @@
+# Disable sudo to speed up the build
+sudo: false
+
 language: python
   
 env: 
@@ -11,9 +14,7 @@ python:
   - "3.6"    
   
 install:
-  - sudo apt-get update
-  # We do this conditionally because it saves us some downloading if the
-  # version is the same.
+  # Download Conda
   - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
   - bash miniconda.sh -b -p $HOME/miniconda
   - export PATH="$HOME/miniconda/bin:$PATH"
@@ -27,25 +28,23 @@ install:
   # Launch Conda environment
   - source activate test-environment
   # Install the requirements
-  - pip install codecov
-  - pip install -r requirements.txt
-  # Install
-  - pip install -e
+  - pip install -r requirements.txt -r dev-requirements.txt
 
 script:
-  - coverage run run_tests.py
+  - python run_tests.py
   - flake8 {{ cookiecutter.repo_name }}
   - set -e  
   - |
     if [[ -n "$DOCTR_DEPLOY_ENCRYPTION_KEY_{{ cookiecutter.author_name.upper() }}_{{ cookiecutter.repo_name.upper() }}" && $BUILD_DOCS ]]; then
+    # Install the requirements to build the documentation
+    conda install --file docs-requirements.txt -c anaconda -c conda-forge
     # Create HTML documentation  
     pushd docs
     make html
     popd
     # Publish docs.
-    doctr deploy . --built-docs docs/build/html --deploy-branch-name gh-pages --command "touch .nojekyll; git add .nojekyll"
+    doctr deploy . --built-docs docs/_build/html --deploy-branch-name gh-pages
     fi
 
 after_success:
-  - coverage report -m
   - codecov

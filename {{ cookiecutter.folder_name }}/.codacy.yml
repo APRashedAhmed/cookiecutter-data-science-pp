@@ -1,0 +1,16 @@
+engines:
+  duplication:
+    enabled: true
+    exclude_paths:
+      - '{{ cookiecutter.import_name }}/tests/**'
+  bandit:
+    enabled: true
+    exclude_paths:
+      - '{{ cookiecutter.import_name }}/tests/**'
+    
+exclude_paths:
+  - "{{ cookiecutter.import_name }}/models/official/**"
+  - ".*version.*"
+  - "{{ cookiecutter.import_name }}/_version.py"
+  - "versioneer.py"
+  - ".github/**"

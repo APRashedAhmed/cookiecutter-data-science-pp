@@ -1,0 +1,11 @@
+codecov:
+  token: # Enter codecov token here
+
+ignore:
+  - "#versioning"
+  - ".*version.*"
+  - "*_version.py"
+  - "#tests"
+  - "*test*"
+  - "{{ cookiecutter.import_name }}/tests/*"
+

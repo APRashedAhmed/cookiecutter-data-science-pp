@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-############
-# Standard #
-############
 import os
 import sys
 import pytest

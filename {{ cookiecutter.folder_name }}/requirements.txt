@@ -1,6 +1,4 @@
 click
-pytest
-coverage
 awscli
 flake8
 numpy
@@ -8,7 +6,6 @@ pandas
 jupyter
 pyyaml
 coloredlogs
-versioneer
 matplotlib
 watermark
 tqdm
