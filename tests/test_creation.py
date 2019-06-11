@@ -55,9 +55,13 @@ def substitute_cookiecutter_json(name_tuple):
              substituted.append(part)
     return substituted
 
-def get_contents(root_dir=TEMPLATE_DIR, omitted_dirs=set([
-        ".git", ".cache", "__pycache__", ".ipynb_checkpoints"]),
-                 omitted_files=set([])):
+def get_contents(root_dir=TEMPLATE_DIR,
+                 omitted_dirs=set([".git",
+                                   ".cache",
+                                   "__pycache__",
+                                   ".ipynb_checkpoints"]),
+                 omitted_files=set([]),
+                 omit_symlinks=True):
     """Returns two lists of directories and files of the cookiecutter template
     directory.
     """
@@ -71,6 +75,9 @@ def get_contents(root_dir=TEMPLATE_DIR, omitted_dirs=set([
         # Make any substitutions that could be necessary
         substituted_path = "/".join(substitute_cookiecutter_json(
             expected_path.parts))
+        # Check if it is a symlink and omit if we are set to omit them
+        if path.is_symlink() and omit_symlinks:
+            continue
         # Check if it is a directory that isnt supposed to be omitted
         if path.is_dir() and path.name not in omitted_dirs:
             dirs.append(substituted_path)
