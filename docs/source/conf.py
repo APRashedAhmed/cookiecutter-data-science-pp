@@ -11,9 +11,13 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import os
+from pathlib import Path
 import sys
 import sphinx_rtd_theme
+
+module_path = Path(__file__).resolve().parent.parent.parent
+# Insert the module path into index 0
+sys.path.insert(0, str(module_path))
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -27,7 +31,19 @@ import sphinx_rtd_theme
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon']
+extensions = ['sphinx.ext.autodoc',
+              'sphinx.ext.napoleon',
+              'm2r',
+			 ]
+
+## TODO:
+# See the conf for pcdsdevices https://github.com/pcdshub/pcdsdevices/blob/master/docs/source/conf.py
+# - take a look at
+#   - sphinx.ext.todo
+#   - sphinx.ext.autosummary
+#   - IPython.sphinxext.ipython_directive
+#   - IPython.sphinxext.ipython_console_highlighting
+#   - sphinx.ext.autosectionlabel - This one seems particularly useful
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
