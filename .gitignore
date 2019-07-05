@@ -37,3 +37,6 @@ logs/*
 
 # But keep all the .gitkeep files
 !.gitkeep
+
+# Sphinx documentation
+docs/_build/
