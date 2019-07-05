@@ -5,7 +5,7 @@ language: python
 
 env: 
    global:
-      - OFFICIAL_REPO="apra93/data-science-pp-cookiecutter"
+      - OFFICIAL_REPO="apra93/cookiecutter-data-science-pp"
       - BUILD_DOCS=1
       - secure: "Ew4NJPLh+dV4KK6u/6bE79Q7aMUNO8zXfGZ+IGgEZxAESr8r7jFo9b4FUsS65ukGQZ+RpSpOqloPmmA6C1o0hyhLJQkfjrczSG5OoPqtw//5OA4NTwa8tmtYuiR5o5mUMMuJCae2DymzhL7kUv1LRdujxSriHLoYmYH/c1YDqe+8SK5wZoUyEIZsmPVCqj1kgfs/9xFY5mZe3vSZgqhu5duCIJn7VkSrznGqlc/0wTPYQloAYl5zjJ60uZZD8FIBLv03+ljWEDLrVXo1+AjgLKHt4e9yz1jJHRzVacsIacSOTsfXhyH7t6RYt6tvssZ0+pCHk1ic+YJ8w+6OTqTECllhgpWg47fmgPj08d4/ebF8Q/5FQhzani3Ktm9zP0ts/CozAnkywv6nLPm6mefzlI564osmlcdaLPMvWHYGaYEeUeDrSpxMXji2LTceQmybpYrR2oD+bkNEN67Bitm6PJLVbII2+caedJk/WLx4TaWQqIZJ5UMVkt4ZSBKIWHe3MsI1mK9YeyZuPVYeGpC8IFk+OPQO+XxkgF2G846IKKdNrjtCtoVh72xhXi1zvpSB4HtomSCwy8+zMordlwuHXtNJYIpm+1UJcZsa8GV3w7+3cUGwcKYpu72Nby/S8QbPIrnjGTGx15wccla7Hoh8jMA/a7vRI29MWrsaBsPPLic="
 
@@ -33,7 +33,7 @@ script:
   - python run_tests.py
   - set -e  
   - |
-    if [[ -n "$DOCTR_DEPLOY_ENCRYPTION_KEY_APRA93_DATA-SCIENCE-PP-COOKIECUTTER" && $BUILD_DOCS ]]; then
+    if [[ -n "$DOCTR_DEPLOY_ENCRYPTION_KEY_APRA93_COOKIECUTTER-DATA-SCIENCE-PP" && $BUILD_DOCS ]]; then
     # Install the requirements to build the documentation
     conda install --file docs-requirements.txt -c anaconda -c conda-forge
     # Create HTML documentation  

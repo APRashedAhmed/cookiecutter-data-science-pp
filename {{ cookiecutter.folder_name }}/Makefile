@@ -25,6 +25,7 @@ endif
 github:
 	@if [ ! -d ".git" ]; then \
 	git init ; \
+	make versioneer ; \
 	git add . ; \
 	git commit -m "Initial Commit" ; \
 	read -p "Enter remote repo https: " remote ; \
