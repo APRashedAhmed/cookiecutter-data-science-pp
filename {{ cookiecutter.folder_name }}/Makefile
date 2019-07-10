@@ -1,4 +1,4 @@
-.PHONY: clean data lint github versioneer conda-env sync_data_to_s3 sync_data_from_s3
+.PHONY: clean data lint git github conda-env sync_data_to_s3 sync_data_from_s3
 
 #################################################################################
 # GLOBALS                                                                       #
@@ -21,20 +21,25 @@ endif
 # COMMANDS                                                                      #
 #################################################################################
 
+
+## Adds the project to git
+git: 
+	@if [ ! -d ".git" ]; then \
+	git init ; \
+	versioneer install ; \
+	git add . ; \
+	git commit -m "INIT: Initial Commit" ; \
+	fi
+
 ## Adds the project to github
 github:
 	@if [ ! -d ".git" ]; then \
-	git init ; \
-	make versioneer ; \
-	git add . ; \
-	git commit -m "Initial Commit" ; \
-	read -p "Enter remote repo https: " remote ; \
+	make git ; \
+	fi
+
+	@read -p "Enter remote repo https: " remote ; \
 	git remote add origin $$remote ; \
 	git push -u origin master ; \
-	else \
-	printf ">>> Project already setup with git.\n"; \
-	printf ">>> To run github setup, remove '.git' folder.\n"; \
-	fi
 
 ## Delete all compiled Python files
 clean:
@@ -63,17 +68,17 @@ endif
 ## Set up conda environment
 conda-env:
 ifeq (True,$(HAS_CONDA))
-		@printf ">>> Creating '$(IMPORT_NAME)' conda environment. This could take a few minutes ...\n"
-		@conda create --name $(IMPORT_NAME) `cat requirements.txt` -c conda-forge
+		@printf ">>> Creating '$(IMPORT_NAME)' conda environment. This could take a few minutes ...\n\n"
+		@conda create --name $(IMPORT_NAME) --file requirements.txt --file dev-requirements.txt -c anaconda -c conda-forge
+		@printf ">>> Adding the project to the environment...\n\n"
+		@. activate $(IMPORT_NAME)
+		@python setup.py develop
+		@. deactivate
 else
 		@printf ">>> Conda not detected conda, add it to environment and try again.\n"
 endif
 
 # while read requirement; do conda install --yes $requirement || pip install $requirement; done < requirements.txt
-
-## Installs project versioneer
-versioneer:
-	@versioneer install
 
 #################################################################################
 # PROJECT RULES                                                                 #
