@@ -1,5 +1,8 @@
-General Resulting Directory Structure
--------------------------------------
+Resulting Directory Structure
+-----------------------------
+
+The directory structure below is heavily influenced by the setup laid out
+`here <https://drivendata.github.io/cookiecutter-data-science/#why-use-this-project-structure>`_.
 
 .. code-block:: text
 

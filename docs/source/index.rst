@@ -17,7 +17,7 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
-   :caption: Using the Cookicutter
+   :caption: Using the Cookiecutter
 
    directory_structure
    getting-started
