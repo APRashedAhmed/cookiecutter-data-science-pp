@@ -177,6 +177,9 @@
 │   │
 │   ├── __init__.py         &lt;- Makes src a Python module
 │   │
+│   ├── constants.py        &lt;- Central place to define project constants such
+│   │                          as paths, numerical constants, etc.
+│   │
 │   ├── data                &lt;- Scripts to download or generate data
 │   │
 │   ├── features            &lt;- Scripts to turn raw data into features for
@@ -217,14 +220,14 @@
 │                              controlled
 │
 ├── Makefile                &lt;- Makefile with commands like `make github` or
-│                              `make versioneer`
+│                              `make conda-env`
 │
 ├── models                  &lt;- Trained and serialized models, model
 │                              predictions, or model summaries
 │
 ├── notebooks               &lt;- Explorative jupyter notebooks. Naming
 │                              convention is a number (for ordering) and a
-│                              short `-` delimited description.
+│                              short `-` delimited description
 │
 ├── README.md               &lt;- The top-level README for developers using this
 │                              project
