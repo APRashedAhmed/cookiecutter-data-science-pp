@@ -1,0 +1,306 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Auto-Documentation &mdash; cookiecutter-data-science-pp 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Getting Started" href="getting-started.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> cookiecutter-data-science-pp
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Project Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://apra93.github.io/cookiecutter-data-science-pp/">Home</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apra93/cookiecutter-data-science-pp">Github</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://travis-ci.org/apra93/cookiecutter-data-science-pp">Travis CI</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Using the Cookiecutter</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="directory_structure.html">Resulting Directory Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Auto-Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#building-documentation-locally">Building Documentation Locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#travis-and-doctr">Travis and Doctr</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">cookiecutter-data-science-pp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Auto-Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/autodocumentation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="auto-documentation">
+<h1>Auto-Documentation<a class="headerlink" href="#auto-documentation" title="Permalink to this headline">¶</a></h1>
+<p>The documentation setup for the cookiecutter relies on a combination of the
+following tools:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.travis-ci.com/">travis-ci</a></p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/">sphinx</a></p></li>
+<li><p><a class="reference external" href="https://drdoctr.github.io/">doctr</a></p></li>
+</ul>
+<p>Where sphinx creates the documentation pages, travis-ci builds them, and doctr
+deploys them to github pages.</p>
+<div class="section" id="building-documentation-locally">
+<h2>Building Documentation Locally<a class="headerlink" href="#building-documentation-locally" title="Permalink to this headline">¶</a></h2>
+<p>To test the resulting documentation pages, build them locally and make the
+desired changes before pushing them online.</p>
+<p>First install the requirements:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install --file docs-requirements
+</pre></div>
+</div>
+<p>Depending on the way your documentation is structured you may need to also have
+the project in your python path. If it hasn’t already been added, run the
+following command at the top level directory of the repo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python setup.py develop
+</pre></div>
+</div>
+<p>Navigate to the documentation directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd docs
+</pre></div>
+</div>
+<p>And then run <code class="docutils literal notranslate"><span class="pre">make</span></code> with the desired output. For example, to generate html
+pages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make html
+</pre></div>
+</div>
+<p>This will build the documenation as html pages which will reside in
+<code class="docutils literal notranslate"><span class="pre">docs/_build</span></code>. To launch the page, open the index page with a web browser
+such as firefox:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ firefox _build/index.html
+</pre></div>
+</div>
+<p>Below is a list of all the <code class="docutils literal notranslate"><span class="pre">make</span></code> commands (which can also be printed on the
+console by running <code class="docutils literal notranslate"><span class="pre">make</span></code> with no arguments).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Please use `make &lt;target&gt;&#39; where &lt;target&gt; is one of
+  html       to make standalone HTML files
+  dirhtml    to make HTML files named index.html in directories
+  singlehtml to make a single large HTML file
+  pickle     to make pickle files
+  json       to make JSON files
+  htmlhelp   to make HTML files and a HTML help project
+  qthelp     to make HTML files and a qthelp project
+  devhelp    to make HTML files and a Devhelp project
+  epub       to make an epub
+  latex      to make LaTeX files, you can set PAPER=a4 or PAPER=letter
+  latexpdf   to make LaTeX files and run them through pdflatex
+  text       to make text files
+  man        to make manual pages
+  texinfo    to make Texinfo files
+  info       to make Texinfo files and run them through makeinfo
+  gettext    to make PO message catalogs
+  changes    to make an overview of all changed/added/deprecated items
+  linkcheck  to check all external links for integrity
+  doctest    to run all doctests embedded in the documentation (if enabled)
+</pre></div>
+</div>
+</div>
+<div class="section" id="travis-and-doctr">
+<h2>Travis and Doctr<a class="headerlink" href="#travis-and-doctr" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section assumes <code class="docutils literal notranslate"><span class="pre">travis-ci</span></code> has already been setup</p>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">doctr</span></code> installed, run the following from the top level directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ doctr configure
+</pre></div>
+</div>
+<p>Follow the prompts to identify the user and repo this will be set up for, after
+which it will create a deploy key file and provide directions to proceed.</p>
+<p>Like what is stated, add the deploy key using git and add the line with the
+secure key provided to the <code class="docutils literal notranslate"><span class="pre">.travis.yml</span></code> file, but you do <strong>not</strong> have to add
+the lines that run the doctr script. More concretely, only add the following
+lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2. Add these lines to your `.travis.yml` file:
+    env:
+      global:
+        # Doctr deploy key for &lt;github user/github repo&gt;
+        - secure: &quot;&lt;project key&gt;&quot;
+</pre></div>
+</div>
+<p>Commit and push the changes to the remote repo and now anytime the master branch
+has a commit that successfully passes all the tests, the documentation will be
+rebuilt and updated on github pages (assuming the documentation builds as well).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="getting-started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

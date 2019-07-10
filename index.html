@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Original Data Science Coockiecutter &mdash; cookiecutter-data-science-pp 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Resulting Directory Structure" href="directory_structure.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> cookiecutter-data-science-pp
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Project Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://apra93.github.io/cookiecutter-data-science-pp/">Home</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/apra93/cookiecutter-data-science-pp">Github</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://travis-ci.org/apra93/cookiecutter-data-science-pp">Travis CI</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Using the Cookiecutter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="directory_structure.html">Resulting Directory Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autodocumentation.html">Auto-Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">cookiecutter-data-science-pp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Original Data Science Coockiecutter</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p><span class="raw-html-m2r"><h1 align="center">Data Science++ Cookiecutter</h1></span>
+<span class="raw-html-m2r"><!-- Pulled from the readme of pcdsdevices https://github.com/pcdshub/pcdsdevices --></span></p>
+<!-- <p align="center"> -->
+<!--   <a href="#motivation">Motivation</a> • -->
+<!--   <a href="#installation">Installation</a> -->
+<!-- </p> --><div align="center">  <!-- Build Status -->
+  <a href="https://travis-ci.org/apra93/cookiecutter-data-science-pp">
+  <img alt="Travis (.org)" src="https://travis-ci.org/apra93/cookiecutter-data-science-pp.svg?branch=master">
+  </a>
+
+  <!-- License -->
+  <a href="https://github.com/apra93/cookiecutter-data-science-pp/blob/master/LICENSE">
+  <img alt="MIT License" src="https://img.shields.io/badge/license-MIT-blue.svg">
+  </a>
+
+</div>
+  <!-- Add in a break between the badges and the next section. Will likely not be necessary if there is a header after this --><h5 align="center">An Extended data science cookiecutter with engineering tools</h5><p>An extension of the standard data science cookiecutter template that adds a number of things I’ve found to be useful for data-oriented projects. This includes some small scripts and development tools like travis-ci and codecov, among others.</p>
+<div class="section" id="original-data-science-coockiecutter">
+<h1>Original Data Science Coockiecutter<a class="headerlink" href="#original-data-science-coockiecutter" title="Permalink to this headline">¶</a></h1>
+<p>This project is mainly an extension of the main data science cookicutter which can be found here:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://drivendata.github.io/cookiecutter-data-science/">Project Homepage</a></p></li>
+<li><p><a class="reference external" href="https://github.com/drivendata/cookiecutter-data-science/">Github</a></p></li>
+</ul>
+</div>
+<div class="section" id="requirements-for-the-template">
+<h1>Requirements for the Template<a class="headerlink" href="#requirements-for-the-template" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Python &gt;= 3.5</p></li>
+<li><p><a class="reference external" href="http://cookiecutter.readthedocs.org/en/latest/installation.html">Cookiecutter Python package</a> &gt;= 1.4.0</p></li>
+<li><p>simplejson</p></li>
+</ul>
+<p>This can be installed with pip by or conda depending on how you manage your Python packages:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install cookiecutter
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda install cookiecutter -c conda-forge
+</pre></div>
+</div>
+</div>
+<div class="section" id="starting-a-new-project">
+<h1>Starting a New Project<a class="headerlink" href="#starting-a-new-project" title="Permalink to this headline">¶</a></h1>
+<p>If you’re using this cookiecutter for the first time or are in need of an updated clone:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cookiecutter https://github.com/apra93/cookiecutter-data-science-pp
+</pre></div>
+</div>
+<p>Otherwise:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cookiecutter cookiecutter-data-science-pp
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-cookiecutter-tests">
+<h1>Running Cookiecutter Tests<a class="headerlink" href="#running-cookiecutter-tests" title="Permalink to this headline">¶</a></h1>
+<p>To test that all the script and generated files, first install the requirements for running the tests and the underlying repo:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda install --file dev-requirements.txt -c conda-forge
+</pre></div>
+</div>
+<p>And then run the testing script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python run_tests.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="some-useful-links">
+<h1>Some Useful Links<a class="headerlink" href="#some-useful-links" title="Permalink to this headline">¶</a></h1>
+<p>When starting new projects the following pages could be useful:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown cheatsheet</a></p></li>
+<li><p><a class="reference external" href="https://jbt.github.io/markdown-editor/">Markdown online editor</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ralsina/rst-cheatsheet/blob/master/rst-cheatsheet.rst">reStructuredText cheatsheet</a></p></li>
+<li><p><a class="reference external" href="http://rst.ninjs.org/">reStructuredText online editor</a></p></li>
+<li><p><a class="reference external" href="https://shields.io/">Shields.io</a></p></li>
+</ul>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Using the Cookiecutter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="directory_structure.html">Resulting Directory Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#setting-up-the-conda-environment">Setting Up the Conda Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#add-to-github-remote-repo">Add to Github Remote Repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#online-development-tools">Online Development Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autodocumentation.html">Auto-Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autodocumentation.html#building-documentation-locally">Building Documentation Locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autodocumentation.html#travis-and-doctr">Travis and Doctr</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="directory_structure.html" class="btn btn-neutral float-right" title="Resulting Directory Structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
