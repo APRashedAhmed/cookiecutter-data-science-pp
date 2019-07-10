@@ -20,6 +20,9 @@ The directory structure below is heavily influenced by the setup laid out
   │   │
   │   ├── __init__.py         <- Makes src a Python module
   │   │
+  │   ├── constants.py        <- Central place to define project constants such 
+  │   │		                 as paths, numerical constants, etc.
+  │   │
   │   ├── data                <- Scripts to download or generate data
   │   │
   │   ├── features            <- Scripts to turn raw data into features for
@@ -60,14 +63,14 @@ The directory structure below is heavily influenced by the setup laid out
   │                              controlled
   │
   ├── Makefile                <- Makefile with commands like `make github` or
-  │				 `make versioneer`
+  │				 `make conda-env`
   │
   ├── models                  <- Trained and serialized models, model
   │				 predictions, or model summaries
   │
   ├── notebooks               <- Explorative jupyter notebooks. Naming 
   │ 				 convention is a number (for ordering) and a
-  │		                 short `-` delimited description.
+  │		                 short `-` delimited description
   │
   ├── README.md               <- The top-level README for developers using this
   │				 project
